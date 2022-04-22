@@ -11,10 +11,13 @@ import { MaterialModule } from '@app/material.module';
 import { SidebarModule } from '@shared/components/sidebar/sidebar.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+
 import { AdminInterceptor } from '@shared/interceptors/admin-interceptor';
+import { SignupComponent } from '@shared/components/signup/signup.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, SignupComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +26,8 @@ import { AdminInterceptor } from '@shared/interceptors/admin-interceptor';
     SidebarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AdminInterceptor, multi: true },
