@@ -41,4 +41,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout(): void {
     this.authSvc.logout();
   }
+
+  onSignUp(): void {
+    this.authSvc.signUp() ;
+  }
 }

@@ -7,9 +7,14 @@
   <span>My APP</span>
   <span class="spacer"></span>
   <a *ngIf="!isLogged; else viewLogout" mat-button routerLink="/login">Login</a>
+  <a *ngIf="!isLogged; else viewSignUp" mat-button routerLink="/signup">SignUp</a>
   <a *ngIf="isAdmin === 'admin'" mat-button routerLink="/admin">Admin</a>
 </mat-toolbar>
 
 <ng-template #viewLogout>
   <a mat-button (click)="onLogout()">Logout</a>
+</ng-template>
+
+<ng-template #viewSignUp>
+  <a mat-button (click)="onSignUp()">SignUp</a>
 </ng-template>

@@ -26,6 +26,7 @@ export class AuthService {
   get userValue(): UserResponse {
     return this.user.getValue();
   }
+
   login(authData: User): Observable<UserResponse | void> {
     return this.http
       .post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
@@ -43,6 +44,15 @@ export class AuthService {
     localStorage.removeItem('user');
     this.user.next(null);
     this.router.navigate(['/login']);
+  }
+
+  signUp(): void {
+    this.router.navigate(['/signup']);
+  }
+
+  signupUser(user) {
+    return this.http
+    .post<UserResponse>(`${environment.API_URL}/users`, user)
   }
 
   private checkToken(): void {
@@ -73,3 +83,7 @@ export class AuthService {
     return throwError(errorMessage);
   }
 }
+function authData<T>(arg0: string, authData: any): void {
+  throw new Error('Function not implemented.');
+}
+
